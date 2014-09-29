@@ -67,6 +67,18 @@ require 'rails_helper'
 		end
 	end
 
+	describe 'dedicated restaurant page' do
+		before do
+			@restaurant = Restaurant.create(name: 'KFC')
+		end
+
+		it "displays the restaurant page" do
+			visit '/restaurants'
+			click_link 'KFC'
+			expect(current_path).to eq restaurant_path(@restaurant)
+			expect(page).to have_content 'This is KFC'
+		end
+	end
 
 
 

@@ -17,6 +17,10 @@ class RestaurantsController < ApplicationController
 		@restaurant = Restaurant.find(params[:id])
 	end
 
+	def show
+		@restaurant = Restaurant.find(params[:id])
+	end
+
 	def update
 		@restaurant = Restaurant.find(params[:id])
 		@restaurant.update(params[:restaurant].permit(:name))
