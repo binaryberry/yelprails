@@ -9,8 +9,13 @@ class RestaurantsController < ApplicationController
 	end
 
 	def create
-		restaurant = Restaurant.create(params[:restaurant].permit(:name))
-		redirect_to restaurants_path
+		@restaurant = Restaurant.new(params[:restaurant].permit(:name))
+		if @restaurant.save #had to make restaurant global variable here but Stephen didn't
+			redirect_to restaurants_path
+		else
+			render 'new' #using render instead of redirect allows to have the page pre-populated
+		end
+
 	end
 
 	def edit

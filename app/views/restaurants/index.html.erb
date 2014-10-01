@@ -3,10 +3,18 @@
 	<h2><a href='<%=restaurant_path(restaurant)%>' ><%=restaurant.name %></h2>
 	<%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %>
 	<%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete %>
-	<%end%>
+	<%= link_to "Show #{restaurant.name}", restaurant_path(restaurant) %>
+	<%= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant)%>
+		<ul>
+		<%= restaurant.reviews.each do |review| %>
+		<li> <%= "#{review.thoughts} (#{review.rating})"%></li>
+		</ul>
+		<%end%>
+	
 
+	<%end%>
+	
 <%else%>
 	No restaurants were added
 <%end%>
 <%= link_to 'Add a restaurant', new_restaurant_path %>	
-<!-- <a href='#'>Add a restaurant</a> -->

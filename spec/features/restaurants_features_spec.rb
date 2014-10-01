@@ -26,13 +26,28 @@ require 'rails_helper'
 	end
 
 	describe 'creating restaurants' do
-		it "prompts user to fill a form" do
-			visit '/restaurants'
-			click_link 'Add a restaurant'
-			fill_in 'Name', with: 'KFC'
-			click_button 'Create Restaurant'
-			expect(page).to have_content 'KFC'
-			expect(current_path).to eq "/restaurants"
+		context 'a valid restaurant' do
+		
+			it "prompts user to fill a form" do
+				visit '/restaurants'
+				click_link 'Add a restaurant'
+				fill_in 'Name', with: 'KFC'
+				click_button 'Create Restaurant'
+				expect(page).to have_content 'KFC'
+				expect(current_path).to eq "/restaurants"
+			end
+		end	
+
+		context 'an invalid restaurant' do
+			it "does not let you submit a name that is too short" do
+					visit '/restaurants'
+					click_link 'Add a restaurant'
+					fill_in 'Name', with: 'kf'
+					click_button 'Create Restaurant'
+					expect(page).not_to have_css 'h2', text: 'kf'
+					expect(page).to have_content 'error'
+				
+			end	
 		end
 	end
 
@@ -69,16 +84,18 @@ require 'rails_helper'
 
 	describe 'dedicated restaurant page' do
 		before do
-			@restaurant = Restaurant.create(name: 'KFC')
+			@restaurant = Restaurant.create(name: 'Nandos', description: "This Nandos doesn't do naan bread")
 		end
 
 		it "displays the restaurant page" do
 			visit '/restaurants'
-			click_link 'KFC'
-			expect(current_path).to eq restaurant_path(@restaurant)
-			expect(page).to have_content 'This is KFC'
+			click_link 'Show Nandos'
+			expect(page).to have_content 'This Nandos doesn\'t do naan bread'
+			expect(current_path).to match(/restaurants\/\d/)
 		end
 	end
+
+	
 
 
 
