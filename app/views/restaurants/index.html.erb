@@ -8,8 +8,9 @@
 		<ul>
 		<%= restaurant.reviews.each do |review| %>
 		<li> <%= "#{review.thoughts} (#{review.rating})"%></li>
-		</ul>
 		<%end%>
+		<h3>Average rating: <%= restaurant.average_rating %></h3>
+		</ul>
 	
 
 	<%end%>
