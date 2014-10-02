@@ -1,15 +1,9 @@
-[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[33m*[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[33m*[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[33m*[0m
+[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[33m*[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m
 
 Pending:
-  [33mEndorsementsHelper add some examples to (or delete) /Users/tsouk/Makers/yelprails/yelprails/spec/helpers/endorsements_helper_spec.rb[0m
-    # [36mNot yet implemented[0m
-    # [36m./spec/helpers/endorsements_helper_spec.rb:14[0m
-  [33mEndorsement add some examples to (or delete) /Users/tsouk/Makers/yelprails/yelprails/spec/models/endorsement_spec.rb[0m
-    # [36mNot yet implemented[0m
-    # [36m./spec/models/endorsement_spec.rb:4[0m
-  [33mUser add some examples to (or delete) /Users/tsouk/Makers/yelprails/yelprails/spec/models/user_spec.rb[0m
-    # [36mNot yet implemented[0m
-    # [36m./spec/models/user_spec.rb:4[0m
+  [33msessions signing up allows a user to sign in through Facebook[0m
+    # [36mTemporarily skipped with xit[0m
+    # [36m./spec/features/user_feature_spec.rb:35[0m
 
-Finished in 2.1 seconds (files took 1.59 seconds to load)
-[33m26 examples, 0 failures, 3 pending[0m
+Finished in 2.18 seconds (files took 1.58 seconds to load)
+[33m26 examples, 0 failures, 1 pending[0m
