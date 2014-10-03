@@ -1,9 +1,9 @@
-[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[33m*[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m
+[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[33m*[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m
 
 Pending:
   [33msessions signing up allows a user to sign in through Facebook[0m
     # [36mTemporarily skipped with xit[0m
     # [36m./spec/features/user_feature_spec.rb:35[0m
 
-Finished in 2.18 seconds (files took 1.58 seconds to load)
-[33m26 examples, 0 failures, 1 pending[0m
+Finished in 2.19 seconds (files took 1.45 seconds to load)
+[33m28 examples, 0 failures, 1 pending[0m

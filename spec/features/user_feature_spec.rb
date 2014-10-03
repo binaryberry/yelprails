@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'sessions' do
-	def sign_up_by_email
+	def create_user
 	click_link "Sign_up"
 	expect(current_path).to eq "/users/sign_up"
 	fill_in 'Email', with: "robert@gmail.com"
@@ -15,16 +15,16 @@ describe 'sessions' do
 
 		it "allows users to sign up using a form on home page" do
 			visit '/'
-			sign_up_by_email
+			create_user
 			expect(current_path).to eq "/"
 			expect(page).to have_content 'Welcome! You have signed up successfully.'
 		end
 
 		it 'does not allow a user to sign in twice' do
 			visit '/'
-			sign_up_by_email
+			create_user
 			click_link 'Sign_out'
-			sign_up_by_email
+			create_user
 			expect(current_path).to eq "/users"
 			expect(page).to have_content '1 error prohibited this user from being saved:'
 			expect(page).to have_content 'Email has already been taken'
@@ -48,7 +48,7 @@ describe 'sessions' do
 
 		it "allows users to sign out" do
 			visit '/'
-			sign_up_by_email
+			create_user
 			click_link('Sign_out')
 			expect(current_path).to eq "/"
 			expect(page).to have_content "Signed out successfully."
@@ -56,4 +56,6 @@ describe 'sessions' do
 		end
 
 	end
+
+
 end

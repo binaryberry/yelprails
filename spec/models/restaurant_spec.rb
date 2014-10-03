@@ -41,4 +41,28 @@ RSpec.describe Restaurant, :type => :model do
 		end
 
 	end
+
+	describe "belongs to a user" do
+			context "when the user creates a restaurant" do
+			
+			before do
+				@user = User.create(email: "robert@gmail.com", password: "huhuhuhu", password_confirmation: "huhuhuhu")
+				@restaurant = @user.restaurants.create(name: "The Ivy")
+			end
+
+				it "knows the restaurant belongs to that user" do
+				expect(@restaurant.was_created_by?(@user)).to eq true
+				end
+
+				it "knows when a restaurant doesn't belong to a user" do
+				another_user = User.create(email: "nicola@gmail.com", password: "lalalala", password_confirmation: "lalalala")
+				expect(@restaurant.was_created_by?(another_user)).to eq false
+				end
+
+			end
+
+
+
+	end
+
 end

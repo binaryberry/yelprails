@@ -1,5 +1,13 @@
 require 'rails_helper'
 
+def create_user
+click_link "Sign_up"
+expect(current_path).to eq "/users/sign_up"
+fill_in 'Email', with: "robert@gmail.com"
+fill_in 'Password', with: "RobotsRule"
+fill_in 'Password confirmation', with: "RobotsRule"
+click_button 'Sign up'
+end
 
 	describe 'displaying restaurants' do
 		context'no restaurants were added' do
@@ -70,28 +78,39 @@ require 'rails_helper'
 
 	describe 'deleting restaurants' do
 		before do
-			Restaurant.create(name: 'KFC')
+			@user = User.create(email: "andy@gmail.com", password: "huhuhuhu", password_confirmation: "huhuhuhu")
+			@restaurant = @user.restaurants.create(name: "The Ivy")
 		end
 
-		it "removes a restaurant when a user clicks a delete link" do
-			visit '/restaurants'
-			click_link 'Delete KFC'
-			expect(page).not_to have_content 'KFC'
-			expect(page).to have_content "Restaurant deleted successfully" 
+		context "when the user has created the restaurant" do
+
+			it "removes a restaurant when a user clicks a delete link" do
+				visit '/restaurants'
+				click_link 'Sign_in'
+				fill_in 'Email', with: "andy@gmail.com"
+				fill_in 'Password', with: "huhuhuhu"
+				click_button "Log in"
+				click_link 'Delete The Ivy'
+				expect(page).not_to have_content 'The Ivy'
+				expect(page).to have_content "Restaurant deleted successfully" 
+			end
+
+			# it "does not allow him to leave a review of his restaurant" do
+				
+			# end
+
 
 		end
-	end
 
-	describe 'dedicated restaurant page' do
-		before do
-			@restaurant = Restaurant.create(name: 'Nandos', description: "This Nandos doesn't do naan bread")
-		end
+		context "when the user did not create the restaurant" do
 
-		it "displays the restaurant page" do
-			visit '/restaurants'
-			click_link 'Show Nandos'
-			expect(page).to have_content 'This Nandos doesn\'t do naan bread'
-			expect(current_path).to match(/restaurants\/\d/)
+			it "does not remove the restaurant" do
+				visit "/"
+				create_user
+				click_link 'Delete The Ivy'
+				expect(page).to have_content "Only the owner can delete this restaurant" 
+				expect(page).to have_content "The Ivy" 
+			end
 		end
 	end
 
