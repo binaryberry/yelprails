@@ -95,10 +95,6 @@ end
 				expect(page).to have_content "Restaurant deleted successfully" 
 			end
 
-			# it "does not allow him to leave a review of his restaurant" do
-				
-			# end
-
 
 		end
 

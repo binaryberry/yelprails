@@ -5,5 +5,5 @@ Pending:
     # [36mTemporarily skipped with xit[0m
     # [36m./spec/features/user_feature_spec.rb:35[0m
 
-Finished in 2.19 seconds (files took 1.45 seconds to load)
+Finished in 2.5 seconds (files took 1.47 seconds to load)
 [33m28 examples, 0 failures, 1 pending[0m
